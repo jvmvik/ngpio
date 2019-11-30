@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"os/user"
 	"sync"
-"os/user"
 )
 
 var (
@@ -44,14 +44,14 @@ func (port Port) init(direction string) {
 			panic(err)
 		}
 		defer f.Close()
-		fmt.Fprintf(f, "%d", port.PhysicalOutput) 
+		fmt.Fprintf(f, "%d", port.PhysicalOutput)
 	}
 	f, err := os.OpenFile(port.path()+"/direction", os.O_WRONLY, 0600)
-		if err != nil {
-			panic(err)
-		}
-		defer f.Close()
-		fmt.Fprintf(f, "%s", direction) 
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
+	fmt.Fprintf(f, "%s", direction)
 }
 
 func (port Port) path() string {
@@ -120,7 +120,7 @@ func isRoot() {
 
 // Nano return PinDefCollection for Jetson Nano
 // https://www.element14.com/community/community/designcenter/single-board-computers/blog/2019/05/21/nvidia-jetson-nano-developer-kit-pinout-and-diagrams
-func nano() PortSpecification {
+func Nano() PortSpecification {
 	isRoot()
 	spec := PortSpecification{}
 	spec.ports = []Port{
