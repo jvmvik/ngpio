@@ -1,13 +1,13 @@
 # ngpio
-Nvidia Jetson Nano GPIO library (very basic)
+Nvidia Jetson Nano GPIO library in Go with limited capabiltiy.
 
-Work in progress... currently in early development
+The current implementation is targetting only to toggle the output of the Jetson Nano.
 
 ![Nvidia Jetson nano header](https://github.com/jvmvik/ngpio/blob/master/jetson_nano_pinout.png)
 
-## Inspired by
- * https://github.com/stianeikeland/go-rpio
- * https://github.com/NVIDIA/jetson-gpio
+## More advanced projects.
+ * https://github.com/stianeikeland/go-rpio [Golang / Pi support only]
+ * https://github.com/NVIDIA/jetson-gpio [python / Nvidia support]
  
 Note: 
  * Port number 5,3,8,10,25,27 are not available as a basic output/input but reserved for special usage.
